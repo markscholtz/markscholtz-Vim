@@ -53,7 +53,8 @@
 " Vim UI {
 	"let g:molokai_original = 1 	" slight modification to the molokai theme
 	"color molokai     	       		" load a colorscheme
-	color ir_black     	       		" load a colorscheme
+	"color ir_black     	       		" load a colorscheme
+	color vividchalk     	       		" load a colorscheme
 	"set tabpagemax=15 				" only show 15 tabs
 	set showmode                   	" display the current mode
 
@@ -124,6 +125,9 @@
 	map <S-H> gT
 	map <S-L> gt
 
+	" Quickly jump between two most recent buffers
+	map <Space> <C-^>
+
 	" Easier moving between wrapped lines
 	nmap <silent> j gj
 	nmap <silent> k gk
@@ -156,6 +160,8 @@
 		set lines=40               				" 40 lines of text instead of 24,
 		set columns=160             			" 160 columns
 		set guitablabel'%t guitabtooltip'%F 	" Tab headings 
+	else
+		color ir_black
 	endif
 
 	" Version specific settings {
