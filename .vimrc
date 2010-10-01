@@ -136,7 +136,10 @@
 	nnoremap Y y$
 
 	" Toggle settings
-	:nnoremap <Leader>c :set cursorline!<CR> 	" toggle cursorline
+	nnoremap <Leader>c :set cursorline!<CR>
+
+	" Shortcut for commands
+	nnoremap <silent> <Leader>b :FufBuffer<CR>
 " }
 
 " Plugins {
