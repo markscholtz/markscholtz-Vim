@@ -15,8 +15,9 @@
 " }
 
 " Basics {
-    set nocompatible        " must be first line
-    set background=dark     " Assume a dark background
+    set nocompatible    " must be first line
+    set background=dark " Assume a dark background
+	set hidden          " Not sure what this does, but apparently it should be a default setting
 " }
 
 " General {
@@ -140,6 +141,21 @@
 
 	" Shortcut for commands
 	nnoremap <silent> <Leader>b :FufBuffer<CR>
+
+	" Toggle NERDTree
+	nnoremap <silent> § :NERDTreeToggle<CR>
+
+	" Toggle TagList
+	nnoremap <silent> <Leader>t :TlistToggle<CR>
+
+	" Shortcut to edit my .vimrc
+	nmap <silent> <leader>ev :e $MYVIMRC<cr>
+
+	" Reload my .vimrc to apply any changes made
+	nmap <silent> <leader>sv :so $MYVIMRC<cr>
+
+	" Call git blame on selected text (this seems to work, but the results don't hang around)
+	vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
 " }
 
 " Plugins {
@@ -162,7 +178,7 @@
 		"set guioptions+=rb						" turn on right and horizontal scrollbars 
 		set lines=40               				" 40 lines of text instead of 24,
 		set columns=160             			" 160 columns
-		set guitablabel'%t guitabtooltip'%F 	" Tab headings 
+		"set guitablabel'%t guitabtooltip'%F 	" Tab headings 
 	else
 		color ir_black
 	endif
