@@ -31,3 +31,6 @@
 [submodule "bundle/cucumber_tables/plugin"]
 	path = bundle/cucumber_tables/plugin
 	url = git://gist.github.com/287147.git
+[submodule "bundle/vimwiki"]
+	path = bundle/vimwiki
+	url = git://github.com/vim-scripts/vimwiki.git
