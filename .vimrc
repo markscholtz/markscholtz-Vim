@@ -145,11 +145,7 @@
 
 	" Shortcut for commands
 	nnoremap <silent> <Leader>b :FufBuffer<CR>
-
-	" Toggle NERDTree
 	nnoremap <silent> § :NERDTreeToggle<CR>
-
-	" Toggle TagList
 	nnoremap <silent> <Leader>t :TlistToggle<CR>
 
 	" Shortcut to edit my .vimrc
