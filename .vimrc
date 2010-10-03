@@ -97,6 +97,10 @@
 	set scrolloff=3 				" minimum lines to keep above and below cursor
 	set foldenable  				" auto fold code
 	set gdefault					" the /g flag on :s substitutions by default
+
+	" Highlight any text that goes beyond the 80th character of a line
+	highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+	match OverLength /\%81v.\+/
 " }
 
 " Formatting {
@@ -167,6 +171,15 @@
 	" NERDTree {
 		let NERDTreeChDirMode = 2
 	" }
+
+	" Vimwiki {
+
+		let wiki_index = {}
+		let wiki_index.path = '~/Dropbox/Text\ Files/Vim\ Wikis/'
+
+		let g:vimwiki_list = [wiki_index]
+	" }
+
 " }
 
 " GUI Settings {
