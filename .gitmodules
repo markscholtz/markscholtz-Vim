@@ -34,3 +34,12 @@
 [submodule "bundle/vimwiki"]
 	path = bundle/vimwiki
 	url = git://github.com/vim-scripts/vimwiki.git
+[submodule "bundle/color_sampler_pack"]
+	path = bundle/color_sampler_pack
+	url = git://github.com/vim-scripts/Color-Sampler-Pack.git
+[submodule "bundle/scroll_colors"]
+	path = bundle/scroll_colors
+	url = git://github.com/vim-scripts/ScrollColors.git
+[submodule "bundle/yankring"]
+	path = bundle/yankring
+	url = git://github.com/chrismetcalf/vim-yankring.git
