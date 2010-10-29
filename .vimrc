@@ -21,8 +21,8 @@
 " }
 
 " General {
-	filetype plugin indent on  	" Automatically detect file types.
-	syntax on 					" syntax highlighting
+	filetype plugin indent on  	                      " Automatically detect file types.
+	syntax enable 					                          " syntax highlighting
 	set mouse=a					" automatically enable mouse usage
 	"set autochdir 				" always switch to the current file directory..
 	" not every vim is compiled with this, use the following line instead
@@ -55,17 +55,18 @@
 	"let g:molokai_original = 1 	" slight modification to the molokai theme
 	"color molokai     	       		" load a colorscheme
 	"color ir_black     	       		" load a colorscheme
-	color vividchalk     	       		" load a colorscheme
+	"color vividchalk     	       		" load a colorscheme
+	color anotherdark     	       		" load a colorscheme
 	"set tabpagemax=15 				" only show 15 tabs
 	set showmode                   	" display the current mode
 
 	set cursorline  						" highlight current line
 	"set cursorcolumn  						" highlight current line
-	"hi cursorline guibg=#333333 			" highlight bg color of current line
-	hi cursorline guibg=darkred 			" highlight bg color of current line
+	hi cursorline guibg=#333333 			" highlight bg color of current line
+	"hi cursorline guibg=darkred 			" highlight bg color of current line
 	"hi cursorcolumn guibg=#333333   		" highlight cursor
-	autocmd BufEnter * set cursorline 		" highlight current line when entering a buffer
-	autocmd BufLeave * set nocursorline 	" remove highlight from current line when leaving a buffer
+	"autocmd BufEnter * set cursorline 		" highlight current line when entering a buffer
+	"autocmd BufLeave * set nocursorline 	" remove highlight from current line when leaving a buffer
 
 	if has('cmdline_info')
 		set ruler                  	" show the ruler
@@ -107,8 +108,8 @@
 	set nowrap                     	" turn text wrap off by default
 	set autoindent                 	" indent at the same level of the previous line
 	set shiftwidth=4               	" use indents of 4 spaces
-	set tabstop=4 					" an indentation every four columns
-	set noexpandtab 	       		" tabs are tabs, not spaces
+	set tabstop=2 					        " an indentation every two columns
+	set expandtab 	       		      " tabs are expanded to spaces
 	"set matchpairs+=<:>            	" match, to be used with %
 	"set pastetoggle=<F12>          	" pastetoggle (sane indentation on pastes)
 	"set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
@@ -123,10 +124,14 @@
 	let mapleader = ","
 
 	" Easier moving in tabs and windows
-	map <C-J> <C-W>j<C-W>_
-	map <C-K> <C-W>k<C-W>_
-	map <C-L> <C-W>l<C-W>_
-	map <C-H> <C-W>h<C-W>_
+	"map <C-J> <C-W>j<C-W>_
+	"map <C-K> <C-W>k<C-W>_
+	"map <C-L> <C-W>l<C-W>_
+	"map <C-H> <C-W>h<C-W>_
+	map <C-J> <C-W>j
+	map <C-K> <C-W>k
+	map <C-L> <C-W>l
+	map <C-H> <C-W>h
 	map <S-H> gT
 	map <S-L> gt
 
@@ -145,6 +150,7 @@
 
 	" Shortcut for commands
 	nnoremap <silent> <Leader>b :FufBuffer<CR>
+	nnoremap <silent> <Leader>f :FufFile<CR>
 	nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
 	nnoremap <silent> <Leader>t :TlistToggle<CR>
 
@@ -185,8 +191,8 @@
 		set guioptions-=T          				" remove the toolbar
 		set guioptions-=L						" turn off left scrollbar
 		"set guioptions+=rb						" turn on right and horizontal scrollbars 
-		set lines=40               				" 40 lines of text instead of 24,
-		set columns=160             			" 160 columns
+		set lines=50               				" 50 lines of text instead of 24,
+		set columns=200             			" 200 columns
 		"set guitablabel'%t guitabtooltip'%F 	" Tab headings 
 	else
 		color ir_black
