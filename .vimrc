@@ -52,14 +52,10 @@
 " }
 
 " Vim UI {
-    " let g:molokai_original = 1   " slight modification to the molokai theme
-    " color molokai                " load a colorscheme
-    " color ir_black               " load a colorscheme
-    " color vividchalk             " load a colorscheme
-    color anotherdark     	       " load a colorscheme
     set showmode                   " display the current mode
 
     set cursorline              " highlight current line
+    color wombat256
     hi cursorline guibg=#333333 " highlight bg color of current line
 
     if has('cmdline_info')
