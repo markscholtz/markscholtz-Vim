@@ -49,3 +49,9 @@
 [submodule "bundle/json"]
 	path = bundle/json
 	url = git://github.com/vim-scripts/JSON.vim.git
+[submodule "vim-pastie"]
+	path = vim-pastie
+	url = git://github.com/tpope/vim-pastie.git
+[submodule "bundle/pastie"]
+	path = bundle/pastie
+	url = git://github.com/tpope/vim-pastie.git
