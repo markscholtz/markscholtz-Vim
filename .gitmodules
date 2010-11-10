@@ -55,3 +55,6 @@
 [submodule "bundle/pastie"]
 	path = bundle/pastie
 	url = git://github.com/tpope/vim-pastie.git
+[submodule "bundle/bufkill"]
+	path = bundle/bufkill
+	url = git://github.com/vim-scripts/bufkill.vim.git
