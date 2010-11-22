@@ -65,7 +65,7 @@
     endif
 
     if has('statusline')
-      set laststatus=1           	                          " show statusline only if there are > 1 windows
+      set laststatus=2           	                          " always show statusline
       " Use the commented line if fugitive isn't installed
       "set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P   " a statusline, also on steroids
       set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
@@ -137,8 +137,8 @@
     nnoremap <Leader>c :set cursorline!<CR>
 
     " Shortcut for commands
-    nnoremap <silent> <Leader>b :FufBuffer<CR>
-    nnoremap <silent> <Leader>f :FufFile<CR>
+    nnoremap <silent> <Leader>fb :FufBuffer<CR>
+    nnoremap <silent> <Leader>ff :FufFile<CR>
     nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
     nnoremap <silent> <Leader>t :TlistToggle<CR>
 
