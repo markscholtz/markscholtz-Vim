@@ -12,5 +12,5 @@ end
 
 puts `git submodule update --init`
 
-puts `cd bundle/command-t; rvm use system; rake clobber; rake make`
+puts `cd bundle/Command-t; rvm use system; rake clobber; rake make`
 
