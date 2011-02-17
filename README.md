@@ -3,7 +3,7 @@ README - dotvim
 
 Setup
 -----
-
+* git clone git://github.com/markscholtz/markscholtz-Vim.git .vim
 * `./install.rb`
 
 What it does
