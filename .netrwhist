@@ -1,7 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/mark/Sites/PersonalProjects/blog'
-let g:netrw_dirhist_2='/Users/mark/Sites/Unboxed/five-tv'
-let g:netrw_dirhist_3='/Users/mark/Sites/PersonalProjects/blog'
-let g:netrw_dirhist_4='/Users/mark/Sites/Unboxed/timesheets_experiment'
-let g:netrw_dirhist_5='/Users/mark/Sites/Unboxed/timesheets'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/mark/Sites/ShopMunki'
+let g:netrw_dirhist_2='/Users/mark/Sites/ShopMunki/shopmunki_web_v0.1'
+let g:netrw_dirhist_3='/Users/mark/Sites/Unboxed/hero-five-fwd'
+let g:netrw_dirhist_4='/Users/mark/.config/.qwandry'

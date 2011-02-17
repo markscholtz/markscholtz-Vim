@@ -140,7 +140,7 @@
     nnoremap <silent> <Leader>fb :FufBuffer<CR>
     nnoremap <silent> <Leader>ff :FufFile<CR>
     nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
-    nnoremap <silent> <Leader>t :TlistToggle<CR>
+    "nnoremap <silent> <Leader>t :TlistToggle<CR>
 
     " Shortcut to edit my .vimrc
     nmap <silent> <leader>ev :e $MYVIMRC<cr>
