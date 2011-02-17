@@ -20,3 +20,8 @@ Dependencies
 * rake
 * ruby
 * rvm
+
+Caveat
+------
+
+* this is not well tested and may not work on your envinroment. 
