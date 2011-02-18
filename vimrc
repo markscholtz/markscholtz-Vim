@@ -1,10 +1,12 @@
 " Modeline and Notes {
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 "
-" I have copied a lot of Steve Francia's .vimrc file which can 
+" I have copied a lot of Steve Francia's .vimrc file which can
 " be found here: http://spf13.com/post/ultimate-vim-config
 "
 " }
+
+set nocompatible " must be first line
 
 " Setup Bundle Support (pathogen plugin) {
     " The next two lines ensure that the ~/.vim/bundle/ system works
@@ -15,7 +17,6 @@
 " }
 
 " Basics {
-    set nocompatible    " must be first line
     set background=dark " Assume a dark background
     set hidden          " Not sure what this does, but apparently it should be a default setting
 " }
@@ -30,7 +31,8 @@
     set virtualedit=onemore                         " allow for cursor beyond last character
     set history=1000                                " Store a ton of history (default is 20)
     set spell                                       " spell checking on
-    set visualbell 
+    set visualbell                                  " don't beep
+    set noerrorbells                                " don't beep
 
     " Setting up the directories {
         set backup                        " backups are nice ...
@@ -42,13 +44,17 @@
         silent execute '!mkdir -p $HOME/.vim/backup'
         silent execute '!mkdir -p $HOME/.vim/swap'
         silent execute '!mkdir -p $HOME/.vim/view'
-        autocmd BufWinEnter * silent! loadview 			"make vim load view (state) (folds, cursor, etc)
-        autocmd BufWinLeave * silent! mkview  			"make vim save view (state) (folds, cursor, etc)
+        if has('autocmd') "remain compatible with older versions of Vim that do not have the autocmd functions
+          autocmd BufWinEnter * silent! loadview      "make vim load view (state) (folds, cursor, etc)
+          autocmd BufWinLeave * silent! mkview        "make vim save view (state) (folds, cursor, etc)
+        endif
     " }
 " }
 
 " Filetype Specifics {
-    autocmd BufRead *.json set filetype=json
+    if has('autocmd')
+      autocmd BufRead *.json set filetype=json
+    endif
 " }
 
 " Vim UI {
@@ -65,7 +71,7 @@
     endif
 
     if has('statusline')
-      set laststatus=2           	                          " always show statusline
+      set laststatus=2                                      " always show statusline
       " Use the commented line if fugitive isn't installed
       "set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P   " a statusline, also on steroids
       set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
@@ -83,7 +89,7 @@
     set wildmenu                   " show list instead of just completing
     set wildmode=list:longest,full " comand <Tab> completion, list matches, then longest common part, then all.
     set whichwrap=b,s,h,l,<,>,[,]  " backspace and cursor keys wrap to
-    "set scrolljump=5 				     " lines to scroll when cursor leaves screen
+    "set scrolljump=5              " lines to scroll when cursor leaves screen
     set scrolloff=3                " minimum lines to keep above and below cursor
     set foldenable                 " auto fold code
     set gdefault                   " the /g flag on :s substitutions by default
@@ -94,17 +100,19 @@
 " }
 
 " Formatting {
-    set nowrap                     	  " turn text wrap off by default
-    set autoindent                 	  " indent at the same level of the previous line
-    set shiftwidth=2               	  " use indents of 2 spaces
-    set tabstop=2 					          " an indentation every two columns
-    set expandtab 	       		        " tabs are expanded to spaces
-    "set matchpairs+=<:>            	" match, to be used with %
-    "set pastetoggle=<F12>          	" pastetoggle (sane indentation on pastes)
+    set nowrap                        " turn text wrap off by default
+    set autoindent                    " indent at the same level of the previous line
+    set shiftwidth=2                  " use indents of 2 spaces
+    set tabstop=2                     " an indentation every two columns
+    set expandtab                     " tabs are expanded to spaces
+    "set matchpairs+=<:>              " match, to be used with %
+    "set pastetoggle=<F12>            " pastetoggle (sane indentation on pastes)
     "set comments=sl:/*,mb:*,elx:*/   " auto format comment blocks
-    
+
     " Show all whitespace (from http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character)
-    set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:< " This shows spaces as ~ when using the 'set list" command 
+    set list
+    set listchars=tab:>-,trail:~,nbsp:~,extends:#,precedes:< " This shows spaces as ~ when using the 'set list' command
+    "set listchars+=eol:$                                    " uncomment this to enable displaying end of line characters
 " }
 
 " Key Mappings {
@@ -133,6 +141,9 @@
     " Yank from the cursor to the end of the line, to be consistent with C and D.
     nnoremap Y y$
 
+    " Clear the search buffer (http://nvie.com/posts/how-i-boosted-my-vim/)
+    nmap <silent> <Leader>/ :nohlsearch<CR>
+
     " Toggle settings
     nnoremap <Leader>c :set cursorline!<CR>
 
@@ -151,20 +162,20 @@
 
 " Plugins {
 
-	" Taglist {
+  " Taglist {
       let Tlist_Use_Right_Window = 1
-	" }
-	
-	" NERDTree {
-      let NERDTreeChDirMode = 2
-	" }
+  " }
 
-	" Vimwiki {
+  " NERDTree {
+      let NERDTreeChDirMode = 2
+  " }
+
+  " Vimwiki {
       let wiki_index = {}
       let wiki_index.path = '~/Dropbox/Text\ Files/Vim\ Wikis/'
 
       let g:vimwiki_list = [wiki_index]
-	" }
+  " }
 
 " }
 
@@ -174,25 +185,29 @@
       set anti                              " antialias font
       set guioptions-=T                     " remove the toolbar
       set guioptions-=L                     " turn off left scrollbar
-      "set guioptions+=rb						        " turn on right and horizontal scrollbars 
-      set lines=50               				    " 50 lines of text instead of 24,
-      set columns=200             			    " 200 columns
-      "set guitablabel'%t guitabtooltip'%F 	" Tab headings 
+      "set guioptions+=rb                    " turn on right and horizontal scrollbars
+      set lines=50                           " 50 lines of text instead of 24,
+      set columns=200                       " 200 columns
+      "set guitablabel'%t guitabtooltip'%F  " Tab headings
     else
-      color ir_black
+      color ironman
+      " TODO: the nospell setting doesn't work :(
+      set nospell "turn off spelling in console due to unreadable highlighting
     endif
 
     " Version specific settings {
         if has("gui_macvim")
           set guifont=Menlo:h12                 " set font
           set fuoptions=maxvert,maxhorz         " fullscreen options (MacVim only), resized window when changed to fullscreen (max lines and columns)
-          "autocmd GUIEnter * set fullscreen 		" enter fullscreen mode when GUI opens
+          if has('autocmd')
+            "autocmd GUIEnter * set fullscreen    " enter fullscreen mode when GUI opens
+          endif
         elseif has("gui_gtk2")
           set guifont=Monaco
         elseif has("x11")
         elseif has("gui_win32")
           set guifont=Monaco
-          au GUIEnter * simalt ~x 			        "Always open in maximized window state (Windows only I think)
+          au GUIEnter * simalt ~x               "Always open in maximized window state (Windows only I think)
         endif
     " }
 " }
