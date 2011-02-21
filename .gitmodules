@@ -88,3 +88,6 @@
 [submodule "bundle/lusty"]
 	path = bundle/lusty
 	url = git://github.com/sjbach/lusty.git
+[submodule "bundle/ZoomWin"]
+	path = bundle/ZoomWin
+	url = git://github.com/vim-scripts/ZoomWin.git
