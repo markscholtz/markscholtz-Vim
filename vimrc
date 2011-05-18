@@ -142,7 +142,7 @@ set nocompatible " must be first line
     nnoremap Y y$
 
     " Clear the search buffer (http://nvie.com/posts/how-i-boosted-my-vim/)
-    nmap <silent> <Leader>/ :nohlsearch<CR>
+    nmap <silent> <Leader><Space> :nohlsearch<CR>
 
     " Toggle settings
     nnoremap <Leader>c :set cursorline!<CR>
