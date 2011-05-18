@@ -139,7 +139,7 @@ set nocompatible " must be first line
     nmap <silent> k gk
 
     " Yank from the cursor to the end of the line, to be consistent with C and D.
-    nnoremap Y y$
+    nnoremap Y y$ "TODO: this doesn't work ... fix.
 
     " Clear the search buffer (http://nvie.com/posts/how-i-boosted-my-vim/)
     nmap <silent> <Leader><Space> :nohlsearch<CR>
