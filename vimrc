@@ -160,6 +160,24 @@ set nocompatible " must be first line
     nmap <silent> <leader>sv :so $MYVIMRC<cr>
 " }
 
+" Functions {
+    function! StripWhitespace ()
+        exec ':%s/ \+$//gc'
+    endfunction
+    map ,s :call StripWhitespace ()<CR>
+
+    function! DistractionFreeWriting ()
+        exec ':set fuoptions='
+        exec ':set fullscreen'
+        exec ':set columns=80'
+        exec ':set guioptions-=r'
+        exec ':set textwidth=76'
+        exec ':set nonumber'
+        exec ':set norelativenumber'
+    endfunction
+    map ,df :call DistractionFreeWriting ()<CR>
+" }
+
 " Plugins {
 
   " Taglist {
