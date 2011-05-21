@@ -1,5 +1,5 @@
 " Modeline and Notes {
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker :
 "
 " I have copied a lot of Steve Francia's .vimrc file which can
 " be found here: http://spf13.com/post/ultimate-vim-config
@@ -17,7 +17,6 @@ set nocompatible " must be first line
 " }
 
 " Basics {
-    set background=dark " Assume a dark background
     set hidden          " Not sure what this does, but apparently it should be a default setting
 " }
 
@@ -30,7 +29,7 @@ set nocompatible " must be first line
     set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
     set virtualedit=onemore                         " allow for cursor beyond last character
     set history=1000                                " Store a ton of history (default is 20)
-    set spell                                       " spell checking on
+    set nospell                                     " spell checking off
     set visualbell                                  " don't beep
     set noerrorbells                                " don't beep
 
@@ -61,8 +60,6 @@ set nocompatible " must be first line
     set showmode                   " display the current mode
 
     set cursorline              " highlight current line
-    color wombat256
-    hi cursorline guibg=#333333 " highlight bg color of current line
 
     if has('cmdline_info')
       set ruler                                          " show the ruler
@@ -161,11 +158,12 @@ set nocompatible " must be first line
 " }
 
 " Functions {
+    map ,s :call StripWhitespace ()<CR>
     function! StripWhitespace ()
         exec ':%s/ \+$//gc'
     endfunction
-    map ,s :call StripWhitespace ()<CR>
 
+    map ,df :call DistractionFreeWriting ()<CR>
     function! DistractionFreeWriting ()
         exec ':set fuoptions='
         exec ':set fullscreen'
@@ -175,7 +173,6 @@ set nocompatible " must be first line
         exec ':set nonumber'
         exec ':set norelativenumber'
     endfunction
-    map ,df :call DistractionFreeWriting ()<CR>
 " }
 
 " Plugins {
@@ -200,6 +197,8 @@ set nocompatible " must be first line
 " GUI Settings {
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
+      set background=light
+      color solarized
       set anti                              " antialias font
       set guioptions-=T                     " remove the toolbar
       set guioptions-=L                     " turn off left scrollbar
@@ -208,9 +207,9 @@ set nocompatible " must be first line
       set columns=200                       " 200 columns
       "set guitablabel'%t guitabtooltip'%F  " Tab headings
     else
-      color ironman
-      " TODO: the nospell setting doesn't work :(
-      set nospell "turn off spelling in console due to unreadable highlighting
+      set background=light
+      color solarized                      " There is an issue with the background colour at the moment :(
+      "color ironman
     endif
 
     " Version specific settings {
