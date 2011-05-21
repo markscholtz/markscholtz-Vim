@@ -97,3 +97,6 @@
 [submodule "bundle/solarized"]
 	path = bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/hexHighlight"]
+	path = bundle/hexHighlight
+	url = git://github.com/yurifury/hexHighlight.git
