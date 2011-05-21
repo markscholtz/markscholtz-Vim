@@ -143,6 +143,7 @@ set nocompatible " must be first line
 
     " Toggle settings
     nnoremap <Leader>c :set cursorline!<CR>
+    call togglebg#map("<F5>")
 
     " Shortcut for commands
     nnoremap <silent> <Leader>fb :FufBuffer<CR>
