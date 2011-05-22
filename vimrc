@@ -191,6 +191,11 @@ set nocompatible " must be first line
       let Tlist_Use_Right_Window = 1
   " }
 
+  " Supertab {
+      let g:SuperTabDefaultCompletionType        = "context"
+      let g:SuperTabContextDefaultCompletionType = "<c-n>"
+  " }
+
   " NERDTree {
       let NERDTreeChDirMode = 2
   " }
