@@ -162,9 +162,18 @@ set nocompatible " must be first line
 " }
 
 " Functions {
-    map ,s :call StripWhitespace ()<CR>
-    function! StripWhitespace ()
-        exec ':%s/ \+$//gc'
+    " Strip trailing whitespaces (vimcasts.org: episode #4)
+    nnoremap <silent> <Leader>sw :call <SID>StripTrailingWhitespaces()<CR>
+    function! <SID>StripTrailingWhitespaces()
+        " Preparation: save last search, and cursor position.
+        let _s=@/
+        let l = line(".")
+        let c = col(".")
+        " Do the business:
+        %s/\s\+$//e
+        " Clean up: restore previous search history, and cursor position
+        let @/=_s
+        call cursor(l, c)
     endfunction
 
     map ,df :call DistractionFreeWriting ()<CR>
