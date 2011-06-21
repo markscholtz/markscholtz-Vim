@@ -1,0 +1,8 @@
+/**********************************************************************/
+/*                          TODO.txt                                  */
+/**********************************************************************/
+
+- Modify the Solarized colourscheme so that strings in cucumber files
+are hightlighted
+- Remove vimwiki plugin
+- Remove fuzzy plugins (fuzzyfinder and fuzzybuffer)
