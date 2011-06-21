@@ -143,6 +143,9 @@ set nocompatible " must be first line
 
     " Toggle settings
     nnoremap <Leader>c :set cursorline!<CR>
+    nmap <leader>l :set list!<CR>
+
+    " Switch between the light and dark Solarized theme
     call togglebg#map("<F5>")
 
     " Shortcut for commands
