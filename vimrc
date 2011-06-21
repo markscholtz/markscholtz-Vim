@@ -108,8 +108,8 @@ set nocompatible " must be first line
 
     " Show all whitespace (from http://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character)
     set list
-    set listchars=tab:>-,trail:~,nbsp:~,extends:#,precedes:< " This shows spaces as ~ when using the 'set list' command
-    "set listchars+=eol:$                                    " uncomment this to enable displaying end of line characters
+    set listchars=tab:▸\ ,trail:~,nbsp:~,extends:»,precedes:« " This shows spaces as ~ when using the 'set list' command
+    "set listchars+=eol:¬                                      " uncomment this to enable displaying end of line characters
 " }
 
 " Key Mappings {
