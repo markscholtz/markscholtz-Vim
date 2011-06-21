@@ -99,8 +99,9 @@ set nocompatible " must be first line
 " Formatting {
     set nowrap                        " turn text wrap off by default
     set autoindent                    " indent at the same level of the previous line
-    set shiftwidth=2                  " use indents of 2 spaces
     set tabstop=2                     " an indentation every two columns
+    set softtabstop=2                 " when backspacing treat spaces created by expandtab as tabs
+    set shiftwidth=2                  " use indents of 2 spaces
     set expandtab                     " tabs are expanded to spaces
     "set matchpairs+=<:>              " match, to be used with %
     "set pastetoggle=<F12>            " pastetoggle (sane indentation on pastes)
@@ -187,7 +188,7 @@ set nocompatible " must be first line
         exec ':set norelativenumber'
     endfunction
 
-    " Show syntax highlighting groups for word under cursor
+    " Show syntax highlighting groups for word under cursor (vimcasts.org: episode #25)
     nmap <C-S-P> :call <SID>SynStack()<CR>
     function! <SID>SynStack()
       if !exists("*synstack")
@@ -252,7 +253,7 @@ set nocompatible " must be first line
 " GUI Settings {
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
-      set background=light
+      set background=dark
       color solarized
       set anti                              " antialias font
       set guioptions-=T                     " remove the toolbar
