@@ -52,7 +52,8 @@ set nocompatible " must be first line
 
 " Filetype Specifics {
     if has('autocmd')
-      autocmd BufRead *.json set filetype=json
+      autocmd BufNewFile,BufRead *.json set filetype=json
+      autocmd BufNewFile,BufRead *.less set filetype=css
     endif
 " }
 
