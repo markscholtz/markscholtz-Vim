@@ -54,6 +54,7 @@ set nocompatible " must be first line
     if has('autocmd')
       autocmd BufNewFile,BufRead *.json set filetype=json
       autocmd BufNewFile,BufRead *.less set filetype=css
+      autocmd BufNewFile,BufRead Guardfile set filetype=ruby
     endif
 " }
 
@@ -240,6 +241,11 @@ set nocompatible " must be first line
 
   " NERDTree {
       let NERDTreeChDirMode = 2
+  " }
+
+  " Command-T {
+      let g:CommandTMaxHeight = 8
+      let g:CommandTMatchWindowAtTop = 1
   " }
 
   " Vimwiki {
