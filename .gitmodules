@@ -100,3 +100,6 @@
 [submodule "bundle/hexHighlight"]
 	path = bundle/hexHighlight
 	url = git://github.com/yurifury/hexHighlight.git
+[submodule "bundle/vim-haml"]
+	path = bundle/vim-haml
+	url = https://github.com/tpope/vim-haml.git
