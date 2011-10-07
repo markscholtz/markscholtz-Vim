@@ -235,7 +235,7 @@ set nocompatible " must be first line
   " }
 
   " Supertab {
-      let g:SuperTabDefaultCompletionType        = "context"
+      "let g:SuperTabDefaultCompletionType        = "context"
       let g:SuperTabContextDefaultCompletionType = "<c-n>"
   " }
 
@@ -265,6 +265,7 @@ set nocompatible " must be first line
       set anti                              " antialias font
       set guioptions-=T                     " remove the toolbar
       set guioptions-=L                     " turn off left scrollbar
+      set guioptions-=r                     " turn off right scrollbar
       "set guioptions+=rb                    " turn on right and horizontal scrollbars
       set lines=50                           " 50 lines of text instead of 24,
       set columns=200                       " 200 columns
